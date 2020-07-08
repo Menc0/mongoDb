@@ -3,6 +3,7 @@ package com.cwh.mongodb.controller;
 import com.cwh.mongodb.po.User;
 import com.cwh.mongodb.service.MongoDBService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,6 +32,10 @@ public class UserController {
     @GetMapping(value = "/findByNameLike2")
     List<User>findByUsernameLike(@RequestParam String name){
         return mongoDBService.findUserByNameLike(name);
+    }
+    @GetMapping(value = "/findall")
+    List<User>findall(){
+        return mongoDBService.findAll(Sort.by(Sort.Order.desc("age")));
     }
     @GetMapping("add")
     void insertBath(){
