@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: mongodb-demo    #工程名(在注册中心的页面看到的名字)
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/demo
+server:
+  port: 8999  #端口号
